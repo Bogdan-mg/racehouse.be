@@ -1,8 +1,8 @@
 // Pas deze gegevens aan — ze worden overal op de pagina ingevuld.
 const CONFIG = {
-  email: "giurgeab@gmail.com",
-  phone: "+32 400 00 00 00",
-  whatsapp: "32400000000", // internationaal formaat, zonder + of spaties
+  email: "info@voltragroup.be",
+  phone: "0489 41 35 89",
+  whatsapp: "32489413589", // internationaal formaat, zonder + of spaties
 };
 
 // Postcodes binnen het vaste werkgebied (Antwerpen en de rand).
@@ -20,7 +20,7 @@ const $ = (s, el = document) => el.querySelector(s);
 
 // Contactgegevens invullen
 document.querySelectorAll("[data-email]").forEach((a) => { a.href = `mailto:${CONFIG.email}`; a.textContent = CONFIG.email; });
-document.querySelectorAll("[data-phone]").forEach((a) => { a.href = `tel:${CONFIG.phone.replace(/\s/g, "")}`; a.textContent = CONFIG.phone; });
+document.querySelectorAll("[data-phone]").forEach((a) => { a.href = `tel:+32${CONFIG.phone.replace(/\s/g, "").replace(/^0/, "")}`; a.textContent = CONFIG.phone; });
 document.querySelectorAll("[data-whatsapp]").forEach((a) => { a.href = `https://wa.me/${CONFIG.whatsapp}`; });
 $("#year").textContent = new Date().getFullYear();
 

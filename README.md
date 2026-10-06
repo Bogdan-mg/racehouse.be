@@ -14,7 +14,7 @@ Open daarna http://localhost:8000.
 
 ## Aanpassen
 
-- **Contactgegevens**: bovenaan `script.js` (`CONFIG`) én in `index.html` (JSON-LD, footer, BTW-nummer).
+- **Contactgegevens**: bovenaan `script.js` (`CONFIG`) én in `index.html` (JSON-LD, footer).
 - **Werkgebied**: lijst `SERVICE_ZIPS` in `script.js` en de gemeenten in `index.html`.
 - **Uren**: sectie `#afspraak` en `openingHoursSpecification` in `index.html`.
 

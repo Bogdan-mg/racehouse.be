@@ -1,6 +1,6 @@
 // Pas deze gegevens aan — ze worden overal op de pagina ingevuld.
 const CONFIG = {
-  email: "info@racehouse.be",
+  email: "giurgeab@gmail.com",
   phone: "+32 400 00 00 00",
   whatsapp: "32400000000", // internationaal formaat, zonder + of spaties
 };

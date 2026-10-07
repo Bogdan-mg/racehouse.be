@@ -3,51 +3,103 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Racehouse — Motoronderhoud & herstelling aan huis | Antwerpen</title>
-  <meta name="description" content="Racehouse komt naar je toe: onderhoud, herstellingen, remmen en diagnose van je motor bij jou thuis of op het werk, in Antwerpen en omgeving.">
+  <title>Mobiele motormechanieker aan huis in Antwerpen | Racehouse</title>
+  <meta name="description" content="Mobiele motormechanieker in Antwerpen en omgeving: onderhoud, remmen, ketting en diagnose van je motor bij jou thuis of op het werk. Vaste offerte vooraf.">
   <link rel="canonical" href="https://racehouse.be/">
   <meta name="theme-color" content="#0e0f11">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_BE">
-  <meta property="og:title" content="Racehouse — Motormechanieker aan huis in Antwerpen">
+  <meta property="og:site_name" content="Racehouse">
+  <meta property="og:title" content="Racehouse — Mobiele motormechanieker aan huis in Antwerpen">
   <meta property="og:description" content="Onderhoud en herstelling van je motor bij jou aan de deur. Geen gesleur naar de garage.">
   <meta property="og:url" content="https://racehouse.be/">
   <meta property="og:image" content="https://racehouse.be/og-image.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="racehouse.be by voltra — motoronderhoud en herstelling aan huis in Antwerpen en omgeving">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,800&family=Montserrat:ital,wght@0,600;0,700;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MotorcycleRepair",
-    "name": "Racehouse",
-    "url": "https://racehouse.be/",
-    "logo": "https://racehouse.be/assets/logo.png",
-    "image": "https://racehouse.be/og-image.png",
-    "description": "Mobiele motormechanieker: onderhoud en herstelling van motoren aan huis in Antwerpen en omgeving.",
-    "email": "info@voltragroup.be",
-    "telephone": "+32 489 41 35 89",
-    "priceRange": "€€",
-    "vatID": "BE1042544914",
-    "taxID": "BE1042544914",
-    "parentOrganization": { "@type": "Organization", "name": "Voltra", "vatID": "BE1042544914" },
-    "address": { "@type": "PostalAddress", "addressLocality": "Antwerpen", "addressRegion": "Antwerpen", "addressCountry": "BE" },
-    "areaServed": [
-      "Antwerpen", "Berchem", "Borgerhout", "Deurne", "Merksem", "Ekeren", "Wilrijk", "Hoboken",
-      "Mortsel", "Edegem", "Kontich", "Boechout", "Wommelgem", "Schoten", "Brasschaat", "Kapellen", "Zwijndrecht", "Schilde"
-    ],
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+    "@graph": [
+      {
+        "@type": "MotorcycleRepair",
+        "@id": "https://racehouse.be/#business",
+        "name": "Racehouse",
+        "url": "https://racehouse.be/",
+        "logo": "https://racehouse.be/assets/logo.png",
+        "image": "https://racehouse.be/og-image.png",
+        "description": "Mobiele motormechanieker: onderhoud en herstelling van motoren aan huis in Antwerpen en omgeving.",
+        "email": "info@voltragroup.be",
+        "telephone": "+32 489 41 35 89",
+        "priceRange": "€€",
+        "vatID": "BE1042544914",
+        "taxID": "BE1042544914",
+        "knowsLanguage": "nl-BE",
+        "parentOrganization": { "@type": "Organization", "@id": "https://voltragroup.be/#organization", "name": "Voltra", "url": "https://voltragroup.be/", "vatID": "BE1042544914" },
+        "contactPoint": { "@type": "ContactPoint", "telephone": "+32 489 41 35 89", "email": "info@voltragroup.be", "contactType": "customer service", "availableLanguage": "nl" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Antwerpen", "addressRegion": "Antwerpen", "addressCountry": "BE" },
+        "areaServed": [
+          { "@type": "City", "name": "Antwerpen" },
+          { "@type": "City", "name": "Berchem" },
+          { "@type": "City", "name": "Borgerhout" },
+          { "@type": "City", "name": "Deurne" },
+          { "@type": "City", "name": "Ekeren" },
+          { "@type": "City", "name": "Hoboken" },
+          { "@type": "City", "name": "Merksem" },
+          { "@type": "City", "name": "Wilrijk" },
+          { "@type": "City", "name": "Aartselaar" },
+          { "@type": "City", "name": "Boechout" },
+          { "@type": "City", "name": "Borsbeek" },
+          { "@type": "City", "name": "Brasschaat" },
+          { "@type": "City", "name": "Edegem" },
+          { "@type": "City", "name": "Hemiksem" },
+          { "@type": "City", "name": "Hove" },
+          { "@type": "City", "name": "Kapellen" },
+          { "@type": "City", "name": "Kontich" },
+          { "@type": "City", "name": "Mortsel" },
+          { "@type": "City", "name": "Ranst" },
+          { "@type": "City", "name": "Schelle" },
+          { "@type": "City", "name": "Schilde" },
+          { "@type": "City", "name": "Schoten" },
+          { "@type": "City", "name": "Wommelgem" },
+          { "@type": "City", "name": "Zwijndrecht" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Diensten",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Onderhoudsbeurt", "description": "Kleine of grote beurt volgens het schema van de fabrikant: olie, filters, bougies, vloeistoffen en een volledige controle." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Remmen", "description": "Remblokken, remschijven, remvloeistof verversen en ontluchten. Veilig remmen begint bij goed onderhoud." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ketting & tandwielen", "description": "Reinigen, smeren en spannen — of een complete kettingkit vervangen wanneer het tijd is." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnose & elektriciteit", "description": "Uitlezen met diagnoseapparatuur, startproblemen, laadsysteem, verlichting en batterijtest of -vervanging." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seizoensklaar", "description": "Winterklaar maken voor de stalling of in het voorjaar weer rijklaar. Ook een check vóór de verkoop of keuring." } }
+          ]
+        },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://racehouse.be/#website",
+        "url": "https://racehouse.be/",
+        "name": "Racehouse",
+        "alternateName": ["racehouse.be", "Racehouse by Voltra"],
+        "inLanguage": "nl-BE",
+        "publisher": { "@id": "https://racehouse.be/#business" }
+      }
     ]
   }
   </script>
@@ -57,19 +109,22 @@
 
   <header class="nav" id="top">
     <div class="wrap nav__inner">
-      <a href="#top" class="brand" aria-label="Racehouse by Voltra — naar boven">
+      <a href="#top" class="brand" aria-label="racehouse.be by voltra, naar boven">
         <img class="brand__mark" src="assets/logo-mark.svg" alt="" width="56" height="43">
         <span class="brand__text"><span class="brand__name">racehouse<span>.be</span></span><span class="brand__by">by <strong>voltra</strong></span></span>
       </a>
-      <nav aria-label="Hoofdmenu">
-        <ul class="nav__links">
+      <nav aria-label="Hoofdmenu" class="nav__menu">
+        <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="menu"><span class="nav__bars" aria-hidden="true"></span><span class="sr-only">Menu</span></button>
+        <ul class="nav__links" id="menu" role="list">
           <li><a href="#diensten">Diensten</a></li>
           <li><a href="#werkwijze">Werkwijze</a></li>
           <li><a href="#regio">Regio</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li class="nav__extra"><a href="tel:+32489413589">Bel 0489 41 35 89</a></li>
+          <li class="nav__extra"><a href="https://wa.me/32489413589" data-whatsapp target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (opent WhatsApp)</span></a></li>
         </ul>
       </nav>
-      <a href="#afspraak" class="btn btn--sm">Afspraak maken</a>
+      <a href="#afspraak" class="btn btn--sm nav__cta"><span>Afspraak<span class="nav__cta-more"> maken</span></span></a>
     </div>
   </header>
 
@@ -78,14 +133,14 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Mobiele motormechanieker · Antwerpen &amp; omgeving</p>
-          <h1>Je motor onderhouden<br>zonder de <em>garage</em>.</h1>
+          <h1><span class="eyebrow"><span class="dot" aria-hidden="true"></span> Mobiele motormechanieker in Antwerpen &amp; omgeving</span> Je motor onderhouden <br>zonder de <em>garage</em>.</h1>
           <p class="lead">Wij komen met een volledig uitgeruste servicebus naar je oprit, garage of parking. Onderhoud, herstelling en diagnose op locatie — jij hoeft nergens heen.</p>
           <div class="hero__cta">
             <a href="#afspraak" class="btn">Plan je afspraak</a>
             <a href="#diensten" class="btn btn--ghost">Bekijk diensten</a>
           </div>
-          <ul class="hero__facts">
+          <p class="hero__contact">Liever meteen contact? Bel <a href="tel:+32489413589">0489 41 35 89</a> of stuur een <a href="https://wa.me/32489413589" data-whatsapp target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (opent WhatsApp)</span></a>.</p>
+          <ul class="hero__facts" role="list">
             <li><strong>Aan huis</strong><span>of op het werk</span></li>
             <li><strong>Alle merken</strong><span>naked, sport, touring, scooter</span></li>
             <li><strong>Vaste offerte</strong><span>vóór we beginnen</span></li>
@@ -109,8 +164,8 @@
               <line x1="200" y1="200" x2="200" y2="62"/>
               <circle cx="200" cy="200" r="12"/>
             </g>
-            <text x="200" y="285" class="gauge__label">KM/U NAAR JOU</text>
-            <text x="200" y="258" class="gauge__value">0 km</text>
+            <text x="200" y="318" class="gauge__value">0 km</text>
+            <text x="200" y="346" class="gauge__label">JOUW RIT</text>
           </svg>
           <p class="hero__visual-note">Afstand die jij moet afleggen.</p>
         </div>
@@ -118,12 +173,12 @@
     </section>
 
     <!-- MARQUEE -->
-    <div class="strip-wrap" aria-hidden="true"><div class="strip">
+    <div class="strip-wrap"><div class="strip" aria-hidden="true">
       <div class="strip__track">
         <span>Kleine beurt</span><span>Grote beurt</span><span>Remmen</span><span>Ketting &amp; tandwielen</span><span>Diagnose</span><span>Batterij</span><span>Winterklaar</span><span>Keuringsklaar</span>
         <span>Kleine beurt</span><span>Grote beurt</span><span>Remmen</span><span>Ketting &amp; tandwielen</span><span>Diagnose</span><span>Batterij</span><span>Winterklaar</span><span>Keuringsklaar</span>
       </div>
-    </div></div>
+    </div><button type="button" class="strip__toggle" aria-pressed="false"><span class="strip__icon" aria-hidden="true"></span><span class="sr-only">Bewegende band pauzeren</span></button></div>
 
     <!-- DIENSTEN -->
     <section class="section" id="diensten">
@@ -136,35 +191,35 @@
 
         <div class="services">
           <article class="service">
-            <span class="service__no">01</span>
+            <span class="service__no" aria-hidden="true">01</span>
             <h3>Onderhoudsbeurt</h3>
             <p>Kleine of grote beurt volgens het schema van de fabrikant: olie, filters, bougies, vloeistoffen en een volledige controle.</p>
           </article>
           <article class="service">
-            <span class="service__no">02</span>
+            <span class="service__no" aria-hidden="true">02</span>
             <h3>Remmen</h3>
             <p>Remblokken, remschijven, remvloeistof verversen en ontluchten. Veilig remmen begint bij goed onderhoud.</p>
           </article>
           <article class="service">
-            <span class="service__no">03</span>
+            <span class="service__no" aria-hidden="true">03</span>
             <h3>Ketting &amp; tandwielen</h3>
             <p>Reinigen, smeren en spannen — of een complete kettingkit vervangen wanneer het tijd is.</p>
           </article>
           <article class="service">
-            <span class="service__no">04</span>
+            <span class="service__no" aria-hidden="true">04</span>
             <h3>Diagnose &amp; elektriciteit</h3>
             <p>Uitlezen met diagnoseapparatuur, startproblemen, laadsysteem, verlichting en batterijtest of -vervanging.</p>
           </article>
           <article class="service">
-            <span class="service__no">05</span>
+            <span class="service__no" aria-hidden="true">05</span>
             <h3>Seizoensklaar</h3>
             <p>Winterklaar maken voor de stalling of in het voorjaar weer rijklaar. Ook een check vóór de verkoop of keuring.</p>
           </article>
           <a class="service service--cta" href="#afspraak">
-            <span class="service__no">?</span>
+            <span class="service__no" aria-hidden="true">?</span>
             <h3>Iets anders nodig?</h3>
             <p>Vertel ons wat je motor doet of niet meer doet — we laten je weten of we het ter plaatse kunnen oplossen.</p>
-            <span class="service__link">Stel je vraag →</span>
+            <span class="service__link">Stel je vraag <span aria-hidden="true">→</span></span>
           </a>
         </div>
       </div>
@@ -177,24 +232,24 @@
           <p class="kicker">02 — Werkwijze</p>
           <h2>Zo simpel als het hoort te zijn.</h2>
         </div>
-        <ol class="steps">
+        <ol class="steps" role="list">
           <li class="step">
-            <span class="step__no">1</span>
+            <span class="step__no" aria-hidden="true">1</span>
             <h3>Aanvraag</h3>
             <p>Vul het formulier in of stuur een bericht met je motor, het probleem en je adres.</p>
           </li>
           <li class="step">
-            <span class="step__no">2</span>
+            <span class="step__no" aria-hidden="true">2</span>
             <h3>Offerte &amp; afspraak</h3>
             <p>Je krijgt een duidelijke prijs vooraf en we prikken samen een moment dat jou past.</p>
           </li>
           <li class="step">
-            <span class="step__no">3</span>
+            <span class="step__no" aria-hidden="true">3</span>
             <h3>Wij komen langs</h3>
             <p>We werken netjes op een mat, nemen oude olie en onderdelen mee en laten niets achter.</p>
           </li>
           <li class="step">
-            <span class="step__no">4</span>
+            <span class="step__no" aria-hidden="true">4</span>
             <h3>Rijden</h3>
             <p>Je krijgt een overzicht van wat er gedaan is en een stempel in je onderhoudsboekje.</p>
           </li>
@@ -203,13 +258,13 @@
     </section>
 
     <!-- WAAROM -->
-    <section class="section">
+    <section class="section" id="waarom">
       <div class="wrap why">
         <div>
           <p class="kicker">03 — Waarom aan huis</p>
-          <h2>Geen wachtrij.<br>Geen lift nodig.<br>Geen verloren zaterdag.</h2>
+          <h2>Geen wachtrij. <br>Geen lift nodig. <br>Geen verloren zaterdag.</h2>
         </div>
-        <ul class="why__list">
+        <ul class="why__list" role="list">
           <li><strong>Je bespaart tijd.</strong> Geen rit heen en terug naar de garage, geen dag zonder motor.</li>
           <li><strong>Je ziet wat er gebeurt.</strong> Kijk mee, stel vragen, en zie zelf welke onderdelen versleten zijn.</li>
           <li><strong>Ook als hij niet meer start.</strong> Een motor die stilstaat hoeft niet op een aanhangwagen.</li>
@@ -225,11 +280,14 @@
           <p class="kicker">04 — Werkgebied</p>
           <h2>Antwerpen en omgeving.</h2>
           <p>We rijden in heel Antwerpen-stad en de gemeenten errond. Woon je net buiten de zone? Vraag het gerust — vaak lukt het toch.</p>
-          <ul class="towns">
-            <li>Antwerpen</li><li>Berchem</li><li>Borgerhout</li><li>Deurne</li><li>Merksem</li><li>Ekeren</li>
-            <li>Wilrijk</li><li>Hoboken</li><li>Mortsel</li><li>Edegem</li><li>Kontich</li><li>Boechout</li>
-            <li>Wommelgem</li><li>Schoten</li><li>Schilde</li><li>Brasschaat</li><li>Kapellen</li><li>Zwijndrecht</li>
+          <!-- Houd deze lijst gelijk met SERVICE_ZIPS (script.js), areaServed (JSON-LD) en llms.txt -->
+          <ul class="towns" role="list">
+            <li>Antwerpen</li><li>Berchem</li><li>Borgerhout</li><li>Deurne</li><li>Ekeren</li><li>Hoboken</li>
+            <li>Merksem</li><li>Wilrijk</li><li>Aartselaar</li><li>Boechout</li><li>Borsbeek</li><li>Brasschaat</li>
+            <li>Edegem</li><li>Hemiksem</li><li>Hove</li><li>Kapellen</li><li>Kontich</li><li>Mortsel</li>
+            <li>Ranst</li><li>Schelle</li><li>Schilde</li><li>Schoten</li><li>Wommelgem</li><li>Zwijndrecht</li>
           </ul>
+          <p class="towns__more">Ook Linkeroever, Berendrecht-Zandvliet-Lillo en Burcht horen erbij.</p>
           <form class="zip" id="zip-check" novalidate>
             <label for="zip-input">Check je postcode</label>
             <div class="zip__row">
@@ -245,16 +303,16 @@
             <circle cx="210" cy="210" r="190" class="map__ring map__ring--3"/>
             <circle cx="210" cy="210" r="130" class="map__ring map__ring--2"/>
             <circle cx="210" cy="210" r="70" class="map__ring map__ring--1"/>
-            <path d="M120 40 C 150 120, 140 170, 175 205 S 230 260, 205 330 S 230 400, 260 420" class="map__river"/>
+            <path d="M120 40 C 150 120, 140 170, 175 205 S 230 260, 205 330 S 225 385, 245 405" class="map__river"/>
             <g class="map__pins">
               <circle cx="210" cy="210" r="8" class="map__home"/>
               <text x="222" y="214">Antwerpen</text>
               <circle cx="232" cy="248" r="4"/><text x="242" y="252">Berchem</text>
-              <circle cx="268" cy="200" r="4"/><text x="278" y="204">Deurne</text>
+              <circle cx="300" cy="196" r="4"/><text x="310" y="200">Deurne</text>
               <circle cx="232" cy="140" r="4"/><text x="242" y="144">Merksem</text>
               <circle cx="220" cy="90" r="4"/><text x="230" y="94">Ekeren</text>
-              <circle cx="196" cy="300" r="4"/><text x="120" y="304">Wilrijk</text>
-              <circle cx="160" cy="280" r="4"/><text x="88" y="284">Hoboken</text>
+              <circle cx="233" cy="306" r="4"/><text x="243" y="310">Wilrijk</text>
+              <circle cx="160" cy="280" r="4"/><text x="150" y="284" text-anchor="end">Hoboken</text>
               <circle cx="268" cy="280" r="4"/><text x="278" y="284">Mortsel</text>
               <circle cx="300" cy="120" r="4"/><text x="310" y="124">Schoten</text>
               <circle cx="275" cy="60" r="4"/><text x="285" y="64">Brasschaat</text>
@@ -272,34 +330,46 @@
         <div class="booking__intro">
           <p class="kicker">05 — Afspraak</p>
           <h2>Vraag je afspraak aan.</h2>
-          <p>Laat ons weten wat je motor nodig heeft. We antwoorden meestal binnen de werkdag met een prijs en een voorstel van datum.</p>
+          <p>Laat ons weten wat je motor nodig heeft.</p>
+          <p class="next__title">Zo gaat het verder</p>
+          <ol class="next" role="list">
+            <li>Je stuurt je aanvraag via e-mail of WhatsApp.</li>
+            <li>We antwoorden meestal binnen de werkdag met een prijs en een voorstel van datum.</li>
+            <li>Pas na jouw akkoord komen we langs. We voeren nooit extra werk uit zonder jouw akkoord.</li>
+          </ol>
           <dl class="contact">
             <div><dt>Telefoon</dt><dd><a href="tel:+32489413589" data-phone>0489 41 35 89</a></dd></div>
             <div><dt>E-mail</dt><dd><a href="mailto:info@voltragroup.be" data-email>info@voltragroup.be</a></dd></div>
-            <div><dt>WhatsApp</dt><dd><a href="https://wa.me/32489413589" data-whatsapp target="_blank" rel="noopener">Stuur een bericht</a></dd></div>
+            <div><dt>WhatsApp</dt><dd><a href="https://wa.me/32489413589" data-whatsapp target="_blank" rel="noopener">Stuur een bericht<span class="sr-only"> via WhatsApp (opent in een nieuw venster)</span></a></dd></div>
             <div><dt>Uren</dt><dd>Ma–vr 8u–19u · za 9u–16u</dd></div>
           </dl>
         </div>
 
-        <form class="form" id="booking-form" novalidate>
+        <form class="form" id="booking-form" method="post" novalidate>
+          <noscript><p class="form__status error">JavaScript staat uit. Bel <a href="tel:+32489413589">0489 41 35 89</a>, mail <a href="mailto:info@voltragroup.be">info@voltragroup.be</a> of stuur een <a href="https://wa.me/32489413589">WhatsApp</a>.</p></noscript>
           <div class="form__row">
             <div class="field">
               <label for="f-name">Naam</label>
-              <input id="f-name" name="naam" autocomplete="name" required>
+              <input id="f-name" name="naam" autocomplete="name" required aria-describedby="f-name-err">
+              <p class="field__error" id="f-name-err"></p>
             </div>
             <div class="field">
               <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="telefoon" type="tel" autocomplete="tel" required>
+              <input id="f-phone" name="telefoon" type="tel" autocomplete="tel" required aria-describedby="f-phone-err">
+              <p class="field__error" id="f-phone-err"></p>
             </div>
           </div>
           <div class="form__row">
             <div class="field">
               <label for="f-bike">Merk &amp; model</label>
-              <input id="f-bike" name="motor" placeholder="bv. Yamaha MT-07, 2019" required>
+              <input id="f-bike" name="motor" placeholder="bv. Yamaha MT-07, 2019" required aria-describedby="f-bike-err">
+              <p class="field__error" id="f-bike-err"></p>
             </div>
             <div class="field">
               <label for="f-zip">Postcode</label>
-              <input id="f-zip" name="postcode" inputmode="numeric" maxlength="4" autocomplete="postal-code" required>
+              <input id="f-zip" name="postcode" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" autocomplete="postal-code" required aria-describedby="f-zip-err f-zip-zone">
+              <p class="field__error" id="f-zip-err"></p>
+              <p class="field__hint" id="f-zip-zone" aria-live="polite"></p>
             </div>
           </div>
           <fieldset class="field">
@@ -315,13 +385,25 @@
           </fieldset>
           <div class="field">
             <label for="f-msg">Toelichting <span class="opt">(optioneel)</span></label>
-            <textarea id="f-msg" name="bericht" rows="4" placeholder="Kilometerstand, wat je opmerkt, voorkeur voor dag of uur…"></textarea>
+            <p class="field__hint" id="f-msg-hint">Bv. kilometerstand, wat je opmerkt, voorkeur voor dag of uur.</p>
+            <textarea id="f-msg" name="bericht" rows="4" maxlength="1000" aria-describedby="f-msg-hint"></textarea>
           </div>
+          <p class="form__hint" id="form-hint">Je e-mailprogramma of WhatsApp opent met je aanvraag al ingevuld. Daar druk je zelf nog op verzenden.</p>
           <div class="form__actions">
-            <button type="submit" class="btn" data-send="email">Verstuur via e-mail</button>
-            <button type="submit" class="btn btn--ghost" data-send="whatsapp">Verstuur via WhatsApp</button>
+            <button type="submit" class="btn" data-send="email" aria-describedby="form-hint">Verstuur via e-mail</button>
+            <button type="submit" class="btn btn--ghost" data-send="whatsapp" aria-describedby="form-hint">Verstuur via WhatsApp<span class="sr-only"> (opent WhatsApp)</span></button>
           </div>
           <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          <div class="form__fallback" id="form-fallback" hidden>
+            <p><strong>Opent er niets?</strong> Kopieer je aanvraag en stuur ze zelf naar <a href="mailto:info@voltragroup.be" data-email>info@voltragroup.be</a>, of bel <a href="tel:+32489413589">0489 41 35 89</a>.</p>
+            <label class="sr-only" for="form-copy">Je aanvraag</label>
+            <textarea id="form-copy" rows="6" readonly></textarea>
+            <div class="form__fallback-actions">
+              <button type="button" class="btn btn--ghost btn--sm" id="copy-btn">Kopieer aanvraag</button>
+              <a class="btn btn--ghost btn--sm" id="reopen-link" href="#">Opnieuw openen</a>
+            </div>
+          </div>
+          <p class="form__privacy">We gebruiken je gegevens enkel om je aanvraag te beantwoorden. Lees ons <a href="/privacy.html">privacybeleid</a>.</p>
         </form>
       </div>
     </section>
@@ -332,6 +414,7 @@
         <div>
           <p class="kicker">06 — Vragen</p>
           <h2>Goed om te weten.</h2>
+          <p class="section__intro faq__more">Andere vraag? <a href="https://wa.me/32489413589" data-whatsapp target="_blank" rel="noopener">Stuur ons een WhatsApp<span class="sr-only"> (opent WhatsApp)</span></a> of bel <a href="tel:+32489413589">0489 41 35 89</a>.</p>
         </div>
         <div class="faq__list">
           <details>
@@ -374,15 +457,16 @@
   <footer class="footer">
     <div class="wrap footer__inner">
       <div>
-        <a href="#top" class="brand brand--lg" aria-label="Racehouse by Voltra — naar boven">
+        <a href="#top" class="brand brand--lg" aria-label="racehouse.be by voltra, naar boven">
           <img class="brand__mark" src="assets/logo-mark.svg" alt="" width="56" height="43">
-        <span class="brand__text"><span class="brand__name">racehouse<span>.be</span></span><span class="brand__by">by <strong>voltra</strong></span></span>
+          <span class="brand__text"><span class="brand__name">racehouse<span>.be</span></span><span class="brand__by">by <strong>voltra</strong></span></span>
         </a>
         <p>Mobiele motormechanieker in Antwerpen en omgeving.</p>
       </div>
       <div class="footer__meta">
         <p><a href="mailto:info@voltragroup.be" data-email>info@voltragroup.be</a> · <a href="tel:+32489413589" data-phone>0489 41 35 89</a></p>
-        <p>Racehouse is een handelsnaam van Voltra · Ondernemingsnr. BE 1042.544.914</p>
+        <p>Racehouse is een handelsnaam van <a href="https://voltragroup.be/">Voltra</a> · Ondernemingsnr. BE 1042.544.914</p>
+        <p><a href="/privacy.html">Privacybeleid</a></p>
         <p>© <span id="year">2026</span> Racehouse</p>
       </div>
     </div>

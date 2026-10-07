@@ -6,6 +6,7 @@ const CONFIG = {
 };
 
 // Postcodes binnen het vaste werkgebied (Antwerpen en de rand).
+// Houd gelijk met de .towns-lijst en areaServed in index.html en met llms.txt.
 const SERVICE_ZIPS = {
   "2000": "Antwerpen", "2018": "Antwerpen", "2020": "Antwerpen", "2030": "Antwerpen", "2040": "Antwerpen (Berendrecht/Zandvliet/Lillo)",
   "2050": "Antwerpen Linkeroever", "2060": "Antwerpen", "2070": "Zwijndrecht/Burcht",
@@ -18,11 +19,19 @@ const SERVICE_ZIPS = {
 
 const $ = (s, el = document) => el.querySelector(s);
 
-// Contactgegevens invullen
-document.querySelectorAll("[data-email]").forEach((a) => { a.href = `mailto:${CONFIG.email}`; a.textContent = CONFIG.email; });
+// Contactgegevens invullen (ook op subpagina's; elke lookup mag ontbreken)
+document.querySelectorAll("[data-email]").forEach((a) => { a.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent("Vraag via racehouse.be")}`; a.textContent = CONFIG.email; });
 document.querySelectorAll("[data-phone]").forEach((a) => { a.href = `tel:+32${CONFIG.phone.replace(/\s/g, "").replace(/^0/, "")}`; a.textContent = CONFIG.phone; });
-document.querySelectorAll("[data-whatsapp]").forEach((a) => { a.href = `https://wa.me/${CONFIG.whatsapp}`; });
-$("#year").textContent = new Date().getFullYear();
+document.querySelectorAll("[data-whatsapp]").forEach((a) => { a.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hallo Racehouse, ")}`; });
+const yearEl = $("#year"); if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Mobiel menu (≤960px)
+const nav = $(".nav"), toggle = $(".nav__toggle");
+const setMenu = (open) => { nav?.classList.toggle("is-open", open); toggle?.setAttribute("aria-expanded", String(open)); };
+toggle?.addEventListener("click", () => setMenu(!nav.classList.contains("is-open")));
+$("#menu")?.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav?.classList.contains("is-open")) { setMenu(false); toggle?.focus(); } });
+document.addEventListener("click", (e) => { if (nav?.classList.contains("is-open") && !nav.contains(e.target)) setMenu(false); });
 
 // Toerenteller-schaalverdeling
 (() => {
@@ -46,6 +55,10 @@ $("#year").textContent = new Date().getFullYear();
   }
 })();
 
+// Bewegende band pauzeren
+const st = $(".strip__toggle");
+st?.addEventListener("click", () => { const p = $(".strip-wrap").classList.toggle("is-paused"); st.setAttribute("aria-pressed", String(p)); });
+
 // Postcodecheck
 function zoneFor(zip) {
   if (!/^\d{4}$/.test(zip)) return { cls: "", msg: "Geef een geldige Belgische postcode in (4 cijfers)." };
@@ -57,31 +70,71 @@ function zoneFor(zip) {
   return { cls: "", msg: "Dit valt buiten ons werkgebied, maar contacteer ons gerust voor de mogelijkheden." };
 }
 
+// Zone-hint onder de postcode in het afsprakenformulier
+const formZip = $("#f-zip");
+function showZone() {
+  const hint = $("#f-zip-zone");
+  if (!formZip || !hint) return;
+  const zip = formZip.value.trim();
+  hint.textContent = /^\d{4}$/.test(zip) ? zoneFor(zip).msg : "";
+}
+// Tijdens het typen tonen (niet pas bij "change"): anders verspringt het formulier net wanneer je een keuzechip aantikt
+formZip?.addEventListener("input", showZone);
+formZip?.addEventListener("change", showZone);
+
 $("#zip-check")?.addEventListener("submit", (e) => {
   e.preventDefault();
   const out = $("#zip-result");
-  const { cls, msg } = zoneFor($("#zip-input").value.trim());
+  const zip = $("#zip-input").value.trim();
+  const { cls, msg } = zoneFor(zip);
   out.className = `zip__result ${cls}`;
   out.textContent = msg;
+  // Binnen of net buiten de zone: postcode alvast invullen en doorverwijzen naar het formulier
+  if (cls === "ok" || cls === "maybe") {
+    if (formZip && !formZip.value) { formZip.value = zip; showZone(); }
+    const next = document.createElement("a");
+    next.href = "#afspraak";
+    next.className = "zip__next";
+    next.textContent = "Vraag je afspraak aan ";
+    const arrow = document.createElement("span");
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "→";
+    next.append(arrow);
+    out.append(" ", next);
+  }
 });
 
 // Afspraakformulier: stelt een bericht op en opent e-mail of WhatsApp
 const form = $("#booking-form");
+
+const RULES = {
+  naam: [(v) => v.length > 0, "Vul je naam in."],
+  telefoon: [(v) => v.replace(/\D/g, "").length >= 9, "Vul een telefoonnummer in waarop we je kunnen bereiken."],
+  motor: [(v) => v.length > 0, "Vul merk en model van je motor in."],
+  postcode: [(v) => /^\d{4}$/.test(v), "Vul je postcode in (4 cijfers)."],
+};
+function validate(el) {
+  const rule = RULES[el.name]; if (!rule) return true;
+  const ok = rule[0](el.value.trim());
+  el.setAttribute("aria-invalid", String(!ok));
+  const err = document.getElementById(el.id + "-err"); if (err) err.textContent = ok ? "" : rule[1];
+  return ok;
+}
+
+// Oudere Safari kent e.submitter niet: onthoud welke knop werd gebruikt
+let lastVia = "email";
+form?.querySelectorAll("[data-send]").forEach((b) => b.addEventListener("click", () => { lastVia = b.dataset.send; }));
+
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
   const status = $("#form-status");
-  const via = e.submitter?.dataset.send || "email";
+  const via = e.submitter?.dataset.send || lastVia;
 
-  let firstInvalid = null;
-  form.querySelectorAll("[required]").forEach((el) => {
-    const bad = !el.value.trim();
-    el.setAttribute("aria-invalid", bad);
-    if (bad && !firstInvalid) firstInvalid = el;
-  });
-  if (firstInvalid) {
+  const invalid = [...form.querySelectorAll("[required]")].filter((el) => !validate(el));
+  if (invalid.length) {
     status.className = "form__status error";
-    status.textContent = "Vul je naam, telefoon, motor en postcode in.";
-    firstInvalid.focus();
+    status.textContent = `Nog niet compleet: ${invalid.map((el) => el.labels[0].textContent.trim().toLowerCase()).join(", ")}.`;
+    invalid[0].focus();
     return;
   }
 
@@ -97,16 +150,50 @@ form?.addEventListener("submit", (e) => {
   if (data.get("bericht").trim()) lines.push("", data.get("bericht").trim());
   const text = lines.join("\n");
 
+  const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(`Afspraakaanvraag Racehouse\n\n${text}`)}`;
+  const mailUrl = `mailto:${CONFIG.email}?subject=${encodeURIComponent(`Racehouse – afspraakaanvraag – ${data.get("motor")}`)}&body=${encodeURIComponent(text.replace(/\n/g, "\r\n"))}`;
+
   if (via === "whatsapp") {
-    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(`Afspraakaanvraag Racehouse\n\n${text}`)}`, "_blank", "noopener");
+    window.open(waUrl, "_blank", "noopener");
   } else {
-    const subject = `Afspraakaanvraag — ${data.get("motor")}`;
-    window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    window.location.href = mailUrl;
   }
+  // Geen succesmelding: we weten niet of er effectief iets verstuurd werd
   status.className = "form__status ok";
-  status.textContent = "Je bericht staat klaar — verstuur het in je e-mail of WhatsApp. We antwoorden snel!";
+  status.textContent = via === "whatsapp"
+    ? "WhatsApp zou nu moeten openen met je aanvraag. Druk daar nog op Verzenden."
+    : "Je e-mailprogramma zou nu moeten openen met je aanvraag. Druk daar nog op Verzenden.";
+
+  // Terugvaloptie tonen: aanvraag kopiëren of opnieuw openen
+  const copy = $("#form-copy"), re = $("#reopen-link"), copyBtn = $("#copy-btn"), fallback = $("#form-fallback");
+  if (copy) copy.value = text;
+  if (copyBtn) copyBtn.textContent = "Kopieer aanvraag";
+  if (re) {
+    re.href = via === "whatsapp" ? waUrl : mailUrl;
+    if (via === "whatsapp") { re.target = "_blank"; re.rel = "noopener"; } else { re.removeAttribute("target"); re.removeAttribute("rel"); }
+  }
+  if (fallback) fallback.hidden = false;
 });
 
+// Fouten verdwijnen tijdens het typen, maar pas na een eerste mislukte poging
 form?.addEventListener("input", (e) => {
-  if (e.target.hasAttribute("aria-invalid") && e.target.value.trim()) e.target.setAttribute("aria-invalid", "false");
+  if (e.target.getAttribute("aria-invalid") === "true") validate(e.target);
 });
+
+$("#copy-btn")?.addEventListener("click", async (e) => {
+  const btn = e.currentTarget; // na await is e.currentTarget leeg
+  const ta = $("#form-copy");
+  try {
+    await navigator.clipboard.writeText(ta.value);
+    btn.textContent = "Gekopieerd ✓";
+  } catch {
+    ta.focus();
+    ta.select();
+    const status = $("#form-status");
+    status.className = "form__status";
+    status.textContent = "Kopiëren lukte niet automatisch. De tekst is geselecteerd: kopieer hem met Ctrl+C of lang drukken.";
+  }
+});
+
+// Menu sluiten als het venster breder wordt dan de mobiele weergave
+matchMedia("(min-width: 961px)").addEventListener?.("change", (e) => { if (e.matches) setMenu(false); });
